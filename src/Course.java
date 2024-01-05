@@ -1,4 +1,5 @@
 
+import java.util.HashMap;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -13,25 +14,32 @@ public class Course {
 		Random rand = new Random();
 
 		// Liste des courses :
-		String [] tabNomCourses = {"Tiercé", "Quarté", "Quinté"};
-							
-		int nbChevauxArrivee = 0; // 
+		String [] tabNameRaces = {"Tiercé", "Quarté", "Quinté"};
+
+
+
+		int nbHorsesArrival = 0; // Nombre de chevaux a l'arrivée!
 
 		// Saisie le nom de la course :
 
 		Scanner scan = new Scanner(System.in);
 		System.out.println("Bonjour veuillez saisir le nom de la course recherché :");
-		String nomCourse = scan.next();
-		for (int i = 0 ; i < tabNomCourses.length ; i++) {
-			if (tabNomCourses[i].equals(nomCourse)) {
-				nbChevauxArrivee = i + 3;
-				break;
+		String NameRaces = scan.next();
+		for (int i = 0 ; i < tabNameRaces.length ; i++) {
+			if (tabNameRaces[i].toLowerCase().equals(NameRaces.toLowerCase())) {
+				nbHorsesArrival = i + 3;	
 			}
+			//HashMap<Integer> set = new
+			//HashMap<Integer>();
+			//				while (set.size() < 3) {
+			//				int nombreAleatoire = rand.nextInt(17) +1;
+			//					System.out.println("les 3 nombreAleatoire sont : "  + set );
+			//			} 
 		}
-		System.out.println(nbChevauxArrivee);
-		//int noCheval = rand.nextInt(17) +1;
+		//System.out.println(nbHorsesArrival);
+
 	}				
 }
-
+//while ( nbHorsesArrival < 18  )
 
 
