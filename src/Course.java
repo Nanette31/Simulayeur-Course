@@ -1,5 +1,3 @@
-
-import java.util.HashMap;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -11,35 +9,40 @@ import java.util.Scanner;
 public class Course {
 
 	public static void main(String[] args) {
-		Random rand = new Random();
-
-		// Liste des courses :
-		String [] tabNameRaces = {"Tiercé", "Quarté", "Quinté"};
-
-
-
-		int nbHorsesArrival = 0; // Nombre de chevaux a l'arrivée!
-
-		// Saisie le nom de la course :
-
-		Scanner scan = new Scanner(System.in);
-		System.out.println("Bonjour veuillez saisir le nom de la course recherché :");
-		String NameRaces = scan.next();
-		for (int i = 0 ; i < tabNameRaces.length ; i++) {
-			if (tabNameRaces[i].toLowerCase().equals(NameRaces.toLowerCase())) {
-				nbHorsesArrival = i + 3;	
+		int horses = 0;
+		int[] number = {};
+		boolean jeuxEnCours = true;
+		
+		while(jeuxEnCours == true ) {
+			System.out.println("Combien de cheveaux doit il y avoir dans la course ?");
+			Scanner scan = new Scanner(System.in);
+			horses = scan.nextInt();
+			
+			System.out.println("Quels type de courses voulez vous ?");
+			System.out.println("[1] Tiercé | [2] Quarté | [3] Qunité |"); 
+			Scanner scanchoix = new Scanner(System.in);
+			int choix = scanchoix.nextInt();
+			if  (choix >= 1 && choix <= 3) {
+				int position =0;
+				while (position < choix + 2) {
+					Random rand = new Random();
+					int randomNum = rand.nextInt((horses - 0) + 1) + 0;
+					number[position] = randomNum;
+					position++;
+				}
+				System.out.println("La cours a les numeros : [ ");
+				for (int i = 0 ; i < number.length ; i++) {
+					System.out.println(number[i] + " ");
+				}
+				System.out.println("]");
+			} else {
+				System.out.println("Mauvaise saisit");
 			}
-			//HashMap<Integer> set = new
-			//HashMap<Integer>();
-			//				while (set.size() < 3) {
-			//				int nombreAleatoire = rand.nextInt(17) +1;
-			//					System.out.println("les 3 nombreAleatoire sont : "  + set );
-			//			} 
+			System.out.println("Voulez vous continuer ? Si oui tapez la touche [O]");
+			Scanner continu = new Scanner(System.in);
+			if (continu.next().toLowerCase() != "o") {
+				jeuxEnCours = false;
+			}
 		}
-		//System.out.println(nbHorsesArrival);
-
-	}				
+	}
 }
-//while ( nbHorsesArrival < 18  )
-
-
